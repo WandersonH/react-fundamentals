@@ -5,26 +5,46 @@
   <div id="root"></div>
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
-
-  <!-- 💣 remove this line
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
-  💣 remove this line -->
+ 
 
-  <script type="module">
+  <script type="text/babel">
     // 🐨 on the script tag above, change `type="module"`
     // to `type="text/babel"` so babel will compile this code for the browser to run.
 
     // 🐨 re-implement this using JSX!
+    /*
     const element = React.createElement('div', {
       className: 'container',
       children: 'Hello World',
     })
+    */
+    
+    // const element = <div className="container">Hello World!</div>
+
+    const nomeClasse = 'container'
+    const conteudo = 'Hello world!!'
+
+    // Usa-se {} para fazer a interpolação de variáveis em JSX
+    //const element = <div className={nomeClasse}>{conteudo}</div>
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
     // `className` rather than `class`!
     // 📜 You can learn the differences between JSX and HTML syntax from the React docs here:
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
+
+    // Criando as variáveis com os mesmos nomes das props
+    const className = 'container'
+    const children = 'Hello world!!!'
+
+    // Uso de propriedades abreviadas
+    const props = { className, children }
+    // Equivale a: { className: className, children: children }
+
+    // Usando espalhamento para passar todas as props de uma vez só
+    const element = <div {...props}></div>
+    // Equivale a: const element = <div className={props.className} children={props.children}></div>
 
     ReactDOM.render(element, document.getElementById('root'))
   </script>
