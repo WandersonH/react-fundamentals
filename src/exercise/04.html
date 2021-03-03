@@ -24,10 +24,39 @@
       </div>
     )*/
 
+    /*
     const element = (
       <div className="container">
         {message({children :'Hello World!'})}
         {message({id: 'goodbye', children:'Goodbye World...'})}
+      </div>
+    )
+    */
+
+    // Renderizar -> processo de transformar instruções escritas em JS
+    // em elementos HTML
+
+    // Função em JS que retorna um componente React personalizado. Esse componente
+    // também possui props personalizadas (subject e greeting).
+    function Message({subject, greeting}) {
+      return (
+        <div className="message">
+          {greeting}, {subject}
+        </div>
+      )
+    }
+
+    // Quando uma função retorna um código JSX renderizável (ou seja, 
+    // que pode se tornar código HTML), a função pode ser usada como se 
+    // fosse uma tag HTML e os respectivos parâmetros são passados como
+    // atributos dessa tag HTML "personalizada".
+    // Para diferenciar essas funções de componente de tags HTML comuns,
+    // o React adota como convenção nomeá-las com inicial maiúscula.
+    const element = (
+      <div className="container">
+        <Message subject="World!" greeting="Hello" />
+        <Message greeting="Goodbye" subject="World..." />
+        <Message subject="mamãe" greeting="Alô" />
       </div>
     )
 

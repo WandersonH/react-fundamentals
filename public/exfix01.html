@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    p.textcenter {
+      text-align: center;
+      background-color: aqua;
+    }
+    p.textdir {
+      text-align: right;
+      background-color: limegreen;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+
+  <script type="text/babel">
+
+    // Arrow function de componente
+    const Container = props => <div className="container" {...props}></div>
+
+    const ParagCenter = props => <p className="textcenter" {...props}></p>
+    
+    // Função tradicional de componente
+    function ParagDir(props) {
+      console.log(props)
+      return <p className="textdir" {...props}></p>
+    }
+
+    // Nessa função, temos duas props personalizadas, n1 e n2
+    function Soma({n1, n2, ...props}) {
+      return <div {...props}>{n1 + n2}</div>
+    }
+
+    const container = (
+      <Container id="main">
+        <ParagCenter id='p1' lang='pt-br'>Componente personalizado</ParagCenter>
+        <ParagDir id="p2">Este texto deve estar alinhado à direita.</ParagDir>
+        <ParagDir id="p3">Este texto também deve estar alinhado à direita.</ParagDir>
+        {/* Se o valor das props não for string, devemos passá-las interpoladas */}
+        <Soma id="soma1" n1={100} n2={50} />
+      </Container>
+    )
+
+    ReactDOM.render(container, document.getElementById('root'))
+  
+  </script>
+</body>
+</html>
