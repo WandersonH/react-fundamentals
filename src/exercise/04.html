@@ -46,6 +46,18 @@
       )
     }
 
+    // React.Fragment é um "pseudoelemento" que existe para cumprir
+    // com a exigência de todo conteúdo renderizável em JSX estar
+    // dentro de alguma tag. No entanto, React.Fragment não gera
+    // nenhum elemento HTML.
+    function Message2({subject, greeting}) {
+      return (
+        <React.Fragment>
+          {greeting}, {subject}
+        </React.Fragment>
+      )
+    }
+
     // Quando uma função retorna um código JSX renderizável (ou seja, 
     // que pode se tornar código HTML), a função pode ser usada como se 
     // fosse uma tag HTML e os respectivos parâmetros são passados como
@@ -57,6 +69,9 @@
         <Message subject="World!" greeting="Hello" />
         <Message greeting="Goodbye" subject="World..." />
         <Message subject="mamãe" greeting="Alô" />
+
+        <Message2 greeting="Olá" subject="Message2" />
+        <Message2 greeting="Bom dia" subject="teste!" />
       </div>
     )
 
