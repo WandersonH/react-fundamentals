@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-bt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício de Fixação 2</title>
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+
+  <script type="text/babel">
+
+    /*
+      Usando os recursos do React (manupuladores de evento, useRef e useState),
+      escreva o nome completo da pessoa (EM MAIÚSCULAS) toda vez que houver 
+      alteração nos campos de nome ou sobrenome.
+    */
+
+    function MeuForm(props) {
+      return (
+        <form>
+          <div>
+            <label htmlFor="nome">Nome</label>
+            <input id="nome" />
+          </div>
+          <div>
+            <label htmlFor="sobrenome">Sobrenome</label>
+            <input id="sobrenome" />
+          </div>
+          <div id="nomeCompleto"></div>         
+        </form>
+      )
+    }
+
+    ReactDOM.render(<MeuForm />, document.getElementById('root'))
+
+  </script>
+  
+</body>
+</html>
